@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mad Libs Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    input {
+      display: block;
+      width: 90%;
+      margin: 10px auto;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .story-output {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Mad Libs Generator</h1>
+    <form id="madLibsForm">
+      <input type="text" id="noun" placeholder="Enter a noun" required>
+      <input type="text" id="verb" placeholder="Enter a verb" required>
+      <input type="text" id="adjective" placeholder="Enter an adjective" required>
+      <input type="text" id="adverb" placeholder="Enter an adverb" required>
+      <button type="submit">Generate Story</button>
+    </form>
+
+    <div id="story" class="story-output"></div>
+  </div>
+
+  <script>
+    document.getElementById("madLibsForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const noun = document.getElementById("noun").value;
+      const verb = document.getElementById("verb").value;
+      const adjective = document.getElementById("adjective").value;
+      const adverb = document.getElementById("adverb").value;
+
+      const story = `Once upon a time, there was a ${adjective} ${noun} who loved to ${verb} ${adverb} all day long. It became a legend in the town!`;
+
+      document.getElementById("story").textContent = story;
+    });
+  </script>
+</body>
+</html>
